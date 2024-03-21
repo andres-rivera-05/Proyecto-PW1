@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import ToDoForm from './ToDoForm'
 import { v4 as uuidv4 } from 'uuid'
 uuidv4();
+import EditToDoForm from './EditToDoForm';
+
 
 const ToDoWrapper = () => {
 
@@ -37,11 +39,11 @@ const ToDoWrapper = () => {
                 <div className='chek-task'>
                   <input className="form-check-input" type="checkbox" id={`cehck${item.id}`} checked={item.completed}
                     onChange={() => handleCheck(item.id)}></input>
-                  <p className={item.completed ? 'texto-tachado' : ''}>tarea {item.task}</p>
+                  <p className={item.completed ? 'texto-tachado' : ''}>Tarea {item.task}</p>
                 </div>
                 <div className='content-btn'>
-                  <button className='btn'><i className='fa-solid fa-pen-to-square'></i></button>
-                  <button className='btn'><i className='fa-solid fa-trash'></i></button>
+                <button className='btn_Edi'><i className='fa-solid fa-pen-to-square'></i></button>
+                <button className='btn'><i className='fa-solid fa-trash'></i></button>
                 </div>
               </div>
               <div className='content-status'>
