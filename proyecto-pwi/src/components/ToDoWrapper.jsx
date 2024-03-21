@@ -6,7 +6,7 @@ uuidv4();
 const ToDoWrapper = () => {
 
   const [todos, setTodos] = useState([]);
-
+ 
   const addTodo = todo => {
     setTodos([...todos, {
       id: uuidv4(), task: todo, completed: false,
@@ -14,6 +14,15 @@ const ToDoWrapper = () => {
     }])
     console.log(todos);
   }
+
+  const handleCheck = (id) => {
+    setTodos(todos.map(todo => {
+      if (todo.id === id) {
+        return { ...todo, completed: !todo.completed, isEditing: !todo.isEditing};
+      }
+      return todo;
+    }));
+  };
 
   return (
     <div className='TodoWrapper'>
@@ -26,8 +35,9 @@ const ToDoWrapper = () => {
             <div className='content-header'>
               <div className='content-task-btn'>
                 <div className='chek-task'>
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                  <p>tarea {item.task}</p>
+                  <input className="form-check-input" type="checkbox" id={`cehck${item.id}`} checked={item.completed}
+                    onChange={() => handleCheck(item.id)}></input>
+                  <p className={item.completed ? 'texto-tachado' : ''}>tarea {item.task}</p>
                 </div>
                 <div className='content-btn'>
                   <button className='btn'><i className='fa-solid fa-pen-to-square'></i></button>
@@ -35,7 +45,7 @@ const ToDoWrapper = () => {
                 </div>
               </div>
               <div className='content-status'>
-                <span>Completado:{item.completed.toString()}</span>
+                <span>Completado: {item.completed.toString()}</span>
                 <span>Finalizado: {item.isEditing.toString()}</span>
               </div>
             </div>

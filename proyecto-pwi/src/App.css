@@ -145,3 +145,15 @@ i.fa-solid.fa-trash {
   align-items: center;
   gap: 10px;
 }
+
+.texto-tachado {
+  text-decoration: line-through;
+}
+
+p {
+  text-align: left;
+  font-size: 13px;
+  padding: 9px;
+  max-width: 265px;
+  width: 100%;
+}
