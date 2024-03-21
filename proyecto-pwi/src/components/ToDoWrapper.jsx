@@ -5,6 +5,8 @@ uuidv4();
 
 const ToDoWrapper = () => {
 
+
+  consol.log("hola")
   const [todos, setTodos] = useState([]);
  
   const addTodo = todo => {
